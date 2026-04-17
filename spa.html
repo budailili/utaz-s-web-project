@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Lidi Travel - SPA Játék</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const App = () => {
+            const [view, setView] = useState('home');
+            if(!sessionStorage.getItem('loggedIn')) window.location.href="index.html";
+
+            return (
+                <div>
+                    <header><h1>SPA - Ügyfélélmény</h1></header>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onClick={() => setView('home')}>Leírás</a></li>
+                            <li><a href="#" onClick={() => setView('game')}>Szerencsekerék</a></li>
+                            <li><a href="index.html">Kilépés</a></li>
+                        </ul>
+                    </nav>
+                    <main>
+                        {view === 'home' ? (
+                            <section className="card">
+                                <h2>Hogy működik?</h2>
+                                <p>Ez egy Single Page Application. A menüpontok közti váltáskor az oldal nem töltődik újra!</p>
+                            </section>
+                        ) : (
+                            <section className="card" style={{textAlign:'center'}}>
+                                <h2>Pörgesse meg!</h2>
+                                <button className="btn-accent" onClick={() => alert("Nyertél egy 5%-os kupont!")}>PÖRGÉS</button>
+                            </section>
+                        )}
+                    </main>
+                    <footer>Készítette: Budai Lili (GVLRPX) & Bácskai József Kristóf (GHX0DH)</footer>
+                </div>
+            );
+        };
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>

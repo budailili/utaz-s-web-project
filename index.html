@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lidi Travel - Prémium Utazási Portál</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; margin: 0; font-family: 'Poppins', sans-serif; background: #f8f9fa; }
+        main { flex: 1; }
+        header { background: #fff; padding: 10px; text-align: center; border-bottom: 1px solid #ddd; }
+        
+        nav { background: #003580; padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #ffb700; }
+
+        .hero { background: linear-gradient(rgba(0,53,128,0.7), rgba(0,53,128,0.7)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; color: white; padding: 80px 20px; text-align: center; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: -40px auto 40px; padding: 0 20px; }
+        .feature-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; transition: 0.3s; border-top: 5px solid #ffb700; }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card h4 { color: #003580; margin-bottom: 15px; }
+        .feature-card a { display: inline-block; background: #003580; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lidi Travel Portál</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="javascript.html">Foglalás (JS)</a></li>
+            <li><a href="react.html">Admin (React)</a></li>
+            <li><a href="spa.html">Játékok (SPA)</a></li>
+            <li><a href="fetchapi.html">Ajánlatok</a></li>
+            <li><a href="oojs.html">Flotta</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>Üdvözöljük a Lidi Travelnél!</h2>
+            <p>Válassza ki a használni kívánt rendszermodult:</p>
+        </section>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>⚙️ Admin (React)</h4>
+                <p>React állapottal (useState) működő dinamikus csomagkezelő felület.</p>
+                <a href="react.html">Kezelés →</a>
+            </div>
+            <div class="feature-card">
+                <h4>🎡 Játékok (SPA)</h4>
+                <p>Egyoldalas alkalmazás két belső React játékkal: Szerencsekerék és Memória.</p>
+                <a href="spa.html">Pörgetés →</a>
+            </div>
+            <div class="feature-card">
+                <h4>🌐 Ajánlatok (Fetch)</h4>
+                <p>Külső szerverről (Fetch API) betöltött partneri adatok megjelenítése.</p>
+                <a href="fetchapi.html">Megtekintés →</a>
+            </div>
+            <div class="feature-card">
+                <h4>📸 Galéria (Axios)</h4>
+                <p>Szerveroldali képfeltöltés és CRUD műveletek React + Axios technológiával.</p>
+                <a href="axios.html">Belépés →</a>
+            </div>
+            <div class="feature-card">
+                <h4>✈️ Flotta (OOJS)</h4>
+                <p>Objektumorientált JavaScript szimuláció osztályokkal és öröklődéssel.</p>
+                <a href="oojs.html">Indítás →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align:center; padding: 20px; background: #333; color: white;">
+        <p>Lidi Travel &copy; 2026 | Projektmunka</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lidi Travel - Axios CRUD</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const App = () => {
+            const [data, setData] = useState([]);
+            useEffect(() => {
+                axios.get('https://jsonplaceholder.typicode.com/posts').then(res => setData(res.data.slice(0, 4)));
+            }, []);
+
+            return (
+                <div>
+                    <nav><ul><li><a href="index.html">Főoldal</a></li></ul></nav>
+                    <div className="container">
+                        <h2>Szerver üzenetek (Axios)</h2>
+                        <div className="grid">
+                            {data.map(p => (
+                                <div key={p.id} className="card">
+                                    <h5>{p.title.substring(0,20)}...</h5>
+                                    <button onClick={() => setData(data.filter(i => i.id !== p.id))}>Törlés</button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <footer>Készítette: Budai Lili (GVLRPX) & Bácskai József Kristóf (GHX0DH)</footer>
+                </div>
+            );
+        };
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>

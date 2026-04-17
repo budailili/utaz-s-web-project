@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lidi Travel - React Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const App = () => {
+            const [csomagok, setCsomagok] = useState([
+                { id: 1, cel: "Sousse", hotel: "Jinene Resort", ar: 85000 },
+                { id: 2, cel: "Hurghada", hotel: "Festival Le Jardin", ar: 110000 }
+            ]);
+
+            const torles = (id) => setCsomagok(csomagok.filter(c => c.id !== id));
+
+            return (
+                <div>
+                    <nav><ul><li><a href="index.html">Főoldal</a></li></ul></nav>
+                    <div className="container">
+                        <h2>Adminisztrációs Panel (React)</h2>
+                        <div className="grid">
+                            {csomagok.map(c => (
+                                <div key={c.id} className="card">
+                                    <h3>{c.hotel}</h3>
+                                    <p>Helyszín: {c.cel}</p>
+                                    <p>Ár: {c.ar.toLocaleString()} Ft</p>
+                                    <button onClick={() => torles(c.id)} className="del-btn" style={{background:'#f00', color:'#fff', border:'none', padding:'8px', borderRadius:'5px', cursor:'pointer'}}>Eltávolítás</button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <footer>Készítette: Budai Lili (GVLRPX) & Bácskai József Kristóf (GHX0DH)</footer>
+                </div>
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>

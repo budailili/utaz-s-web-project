@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Lidi Travel - JS CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Szállodák Kezelése</h1></header>
+    <nav><ul><li><a href="index.html">Vissza a főoldalra</a></li></ul></nav>
+
+    <main>
+        <div class="card">
+            <input type="search" id="filter" onkeyup="render()" placeholder="Keresés név alapján...">
+        </div>
+        <div id="list" class="grid"></div>
+    </main>
+
+    <script>
+        if(!sessionStorage.getItem('loggedIn')) window.location.href="index.html";
+
+        const hotels = [
+            { id: "BS", nev: "Baron Resort", csillag: 5, ar: 157900 },
+            { id: "CL", nev: "Charm Life", csillag: 3, ar: 95000 },
+            { id: "MP", nev: "El Mouradi Palace", csillag: 5, ar: 115900 }
+        ];
+
+        function render() {
+            const q = document.getElementById('filter').value.toLowerCase();
+            const container = document.getElementById('list');
+            container.innerHTML = hotels.filter(h => h.nev.toLowerCase().includes(q)).map((h, i) => `
+                <article class="card">
+                    <h3>${h.nev}</h3>
+                    <p>Besorolás: ${"⭐".repeat(h.csillag)}</p>
+                    <p>Ár: ${h.ar.toLocaleString()} Ft</p>
+                    <button onclick="hotels.splice(${i}, 1); render()" style="color:red;">Törlés</button>
+                </article>
+            `).join('');
+        }
+        render();
+    </script>
+    <footer>Készítette: Budai Lili (GVLRPX) & Bácskai József Kristóf (GHX0DH)</footer>
+</body>
+</html>

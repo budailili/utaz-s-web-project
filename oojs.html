@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Lidi Travel - OOJS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Járműpark (OOJS)</h1></header>
+    <nav><ul><li><a href="index.html">Főoldal</a></li></ul></nav>
+    <main class="grid" id="display"></main>
+
+    <script>
+        if(!sessionStorage.getItem('loggedIn')) window.location.href="index.html";
+
+        class Jarmu {
+            constructor(marka, ev) { this.marka = marka; this.ev = ev; }
+            getInfo() { return `${this.marka} (${this.ev})`; }
+        }
+
+        class Repulo extends Jarmu {
+            constructor(marka, ev, magassag) { super(marka, ev); this.magassag = magassag; }
+            draw() {
+                return `<article class="card"><h3>✈️ ${this.getInfo()}</h3><p>Repülési magasság: ${this.magassag} m</p></article>`;
+            }
+        }
+
+        class Busz extends Jarmu {
+            constructor(marka, ev, hely) { super(marka, ev); this.hely = hely; }
+            draw() {
+                return `<article class="card"><h3>🚌 ${this.getInfo()}</h3><p>Férőhely: ${this.hely} fő</p></article>`;
+            }
+        }
+
+        const flotta = [new Repulo("Boeing 737", 2021, 11000), new Busz("Mercedes Tourismo", 2023, 54)];
+        document.getElementById('display').innerHTML = flotta.map(j => j.draw()).join('');
+    </script>
+    <footer>Készítette: Budai Lili (GVLRPX) & Bácskai József Kristóf (GHX0DH)</footer>
+</body>
+</html>

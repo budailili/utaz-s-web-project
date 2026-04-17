@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lidi Travel - Fetch API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><ul><li><a href="index.html">Vissza</a></li></ul></nav>
+    <div class="container">
+        <h2>Külső Partnereink (Fetch API)</h2>
+        <div id="partnerek" class="grid"></div>
+    </div>
+    <script>
+        async function betolt() {
+            const res = await fetch('https://jsonplaceholder.typicode.com/users');
+            const adatok = await res.json();
+            document.getElementById('partnerek').innerHTML = adatok.slice(0, 6).map(u => `
+                <div class="card">
+                    <h4>${u.name}</h4>
+                    <p>Email: ${u.email}</p>
+                    <button onclick="this.parentElement.remove()" style="border:none; color:red; background:none; cursor:pointer;">[Eltávolítás]</button>
+                </div>
+            `).join('');
+        }
+        betolt();
+    </script>
+    <footer>Készítette: Budai Lili (GVLRPX) & Bácskai József Kristóf (GHX0DH)</footer>
+</body>
+</html>
