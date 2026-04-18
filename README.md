@@ -7,4 +7,6 @@ Bácskai József Kristóf GHX0DH
 
 Alkalmazás felépítése
 
-Ide fogjuk leírni.
+Utazási oldal készítése PHP, HTML, CSS, JS-sel
+
+
