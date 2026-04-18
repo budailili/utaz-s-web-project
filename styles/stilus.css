@@ -1,0 +1,204 @@
+
+:root {
+    --primary-blue: #003580;
+    --accent-yellow: #ffb700;
+    --booking-blue: #006ce4;
+    --text-dark: #262626;
+    --light-bg: #f0f2f5;
+}
+
+body { 
+    font-family: 'Poppins', sans-serif; 
+    margin: 0; padding: 0; 
+    background-color: var(--light-bg); 
+    color: var(--text-dark);
+    padding-bottom: 80px;
+}
+
+header h1 { 
+    background-color: white; 
+    margin: 0; padding: 20px; 
+    font-size: 1.2rem; color: var(--primary-blue); 
+    border-bottom: 3px solid var(--accent-yellow);
+    text-align: center;
+}
+
+/* Navigáció - Mindig látható és elegáns */
+nav { 
+    background: var(--primary-blue); 
+    padding: 15px 0; 
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+nav ul { list-style: none; padding: 0; margin: 0; text-align: center; }
+nav li { display: inline-block; margin: 0 10px; }
+nav a { 
+    color: white; text-decoration: none; 
+    font-weight: 600; padding: 8px 15px; border-radius: 5px;
+    transition: 0.3s;
+}
+nav a:hover { background: rgba(255,255,255,0.2); color: var(--accent-yellow); }
+
+/* Kártya és konténer dizájn */
+.container { padding: 40px; max-width: 1000px; margin: auto; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+footer { 
+    background: #333; color: white; padding: 15px; 
+    position: fixed; bottom: 0; width: 100%; z-index: 1000;
+    text-align: center; font-size: 0.9rem;
+}
+
+
+/* Belépés és Regisztrációs űrlapok dizájnja */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+fieldset {
+    border: none;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+legend {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #003580;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ez fontos, hogy ne lógjon ki a szélesség */
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #003580;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #ffb700;
+    color: #003580;
+}
+
+h3 {
+    text-align: center;
+    color: #444;
+    font-weight: 400;
+    margin-top: 40px;
+}
+
+/* ===== CRUD TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction:column;
+}
+
+thead {
+    background: var(--primary-blue);
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background: #f5f9ff;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* általános gomb */
+.btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* EDIT */
+.btn-edit {
+    background: var(--booking-blue);
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #0056b3;
+}
+
+/* DELETE */
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #a71d2a;
+}
+
+/* ADD BUTTON */
+.add-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    background: #28a745;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+.add-btn:hover {
+    background: #1e7e34;
+}
+
+/* ===== FONTOS: FORM FIX ===== */
+/* csak a login/register formokra hasson */
+fieldset form,
+fieldset input {
+    max-width: 100%;
+}
+
+/* CRUD form NE legyen középre húzva */
+.card form {
+    max-width: 100%;
+    margin: 0;
+}
+
